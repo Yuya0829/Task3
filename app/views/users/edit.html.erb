@@ -1,6 +1,6 @@
 <h2>User info</h2>
 
-<%= form_with model: @user, url: user_path(@user.id), method: :patch do |f| %>
+<%= form_with model: @user, url: user_path(@user), method: :patch do |f| %>
 
   <label for="inputName">Name</label>
   <%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前"%>
@@ -10,6 +10,7 @@
 
   <label for="inputIntroduction">Introduction</label>
   <%= f.text_field :introduction, autofocus: true, id:"inputintroduction", placeholder:"Introduction"%>
+
 
   <%= f.submit "Update User" %>
 
