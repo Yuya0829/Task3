@@ -1,15 +1,32 @@
-<%= render 'list', book: @book_new, user: @user %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'list', book: @book_new, user: @user %>
+    </div>
 
+    <div class="col-md-8 offset-md-1">
+     <h1>Books</h1>
+     <table class="table">
+       <thead>
+        <tr>
+         <td>Title</td>
+         <td>Opinion</td>
+        </tr>
+        </thead>
 
-<h1>Books</h1>
-
-<% @books.each do |book| %>
-
-<div>
-  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-  <p>Title: <%= link_to book.title, book_path(book.id) %></p>
-  <p>Opinion: <%= book.body %></p>
+        <tbody>
+         <tr>
+          <td>
+            <% @books.each do |book| %>
+            <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+            <p><%= link_to book.title, book_path(book.id) %></p>
+            <p><%= book.body %></p>
+            <% end %>
+          </td>
+         </tr>
+        </tbody>
+     </table>
+    </div>
+  </div>
 </div>
-
-<% end %>
 
